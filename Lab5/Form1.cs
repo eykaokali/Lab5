@@ -239,19 +239,19 @@ namespace Lab5
                                     tv.Brand = br.ReadString();
                                     break;
                                 case 3:
-                                    tv.ScreenSize = int.Parse(br.ReadString());
+                                    tv.ScreenSize = br.ReadInt32();
                                     break;
                                 case 4:
                                     tv.Resolution = br.ReadString();
                                     break;
                                 case 5:
-                                    tv.IsSmart = bool.Parse(br.ReadString());
+                                    tv.IsSmart = br.ReadBoolean();
                                     break;
                                 case 6:
                                     tv.Color = br.ReadString();
                                     break;
                                 case 7:
-                                    tv.Price = double.Parse(br.ReadString());
+                                    tv.Price = br.ReadDouble();
                                     break;
                             }
                         }

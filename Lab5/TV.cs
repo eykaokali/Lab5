@@ -7,29 +7,34 @@ using System.Windows.Forms;
 
 namespace Lab5
 {
-     public class TV
+    public abstract class Household
     {
         public string Model { get; set; }
         public string Brand { get; set; }
         public string Color { get; set; }
         public double Price { get; set; }
-        public int ScreenSize { get; set; }
-        public string Resolution { get; set; }
-        public bool IsSmart { get; set; }
-        public float Area
+        public abstract float Area
         {
-            get
-            {
-                double x = Math.Sqrt(ScreenSize + ScreenSize / 337);
-                return Convert.ToSingle(16 * 9 * x * x);
-            }
+            get;
         }
 
-        public void ChangePrice(float newPrice)
+        void ChangePrice(float newPrice)
         {
             if (newPrice >= 0)
                 Price = newPrice;
         }
+    }
+    public class TV : Household
+    {
+        public int ScreenSize { get; set; }
+
+        public string Resolution { get; set; }
+        public bool IsSmart { get; set; }
+
+        public double x;
+        public override float Area => Convert.ToSingle(16 * 9 * x * x);
+
+
         public TV()
         {
 
@@ -44,6 +49,7 @@ namespace Lab5
             IsSmart = isSmart;
             Color = color;
             Price = price;
+            x = Math.Sqrt(ScreenSize * ScreenSize / 337);
         }
     }
 }
