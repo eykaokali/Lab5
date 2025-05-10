@@ -11,7 +11,7 @@ namespace Lab5
     {
         public string Model { get; set; }
         public string Brand { get; set; }
-        public string Color { get; set; }
+        public string Color { get; set; } 
         public double Price { get; set; }
         public abstract float Area
         {
